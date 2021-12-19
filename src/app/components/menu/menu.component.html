@@ -1,0 +1,36 @@
+<nav class="panel navbar navbar-expand-lg navbar-light bg-light justify-content-sm-between m-0 p-0">
+  <a href="#" class="navbar-brand h-100 px-5">
+    <app-logo></app-logo>
+  </a>
+  <button (click)="toggleNavbar()" class="navbar-toggler" type="button">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div [ngClass]="{ 'show': navbarOpen }" class="collapse navbar-collapse" id="navbarNav">
+    <ul class="menu navbar-nav d-flex flex-column flex-sm-row justify-content-start justify-content-sm-between">
+      <li class="nav-item mx-sm-4 py-sm-4">
+        <a class="nav-link" href="#">
+          <i class="fa fa-xs fa-user px-2"></i> 
+          <span>Contracts</span> 
+          <i class="fa fa-xs fa-chevron-down px-2"></i></a>
+      </li>
+      <li class="nav-item mx-sm-4 py-sm-4">
+        <a class="nav-link" href="#">
+          <i class="fa fa-xs fa-file-alt px-2"></i> 
+          <span>Documents</span> 
+          <i class="fa fa-xs fa-chevron-down px-2"></i></a>
+      </li>
+      <li class="nav-item mx-sm-4 py-sm-4">
+        <a class="nav-link" href="#">
+          <i class="fa fa-xs fa-credit-card px-2">
+          </i> <span>Payout</span> 
+          <i class="fa fa-xs fa-chevron-down px-2"></i></a>
+      </li>
+      <li class="nav-item mx-sm-4 py-sm-4">
+        <a class="nav-link" href="#"><i class="fa fa-xs fa-calendar px-2"></i> <span>Payout</span> <i class="fa fa-xs fa-chevron-down px-2"></i></a>
+      </li>
+      <app-user *ngIf="mobile"></app-user>
+    </ul>
+  </div>
+  <app-user *ngIf="!mobile"></app-user>
+</nav>
+

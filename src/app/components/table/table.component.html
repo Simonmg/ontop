@@ -1,0 +1,125 @@
+<div *ngIf="!media" class="d-flex flex-column justify-content-center mb-3 mt-4">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Contractor name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Start date</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Status</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let data of datas">
+            <tr>
+              <th scope="row">
+                  <div class="d-flex flex-row align-items-center">
+                      <img class='avatar' [src]="data.imgUrl" alt="">
+                      <span class="px-2">{{data.name}}</span>
+                  </div>
+              </th>
+              <td scope="row">
+                  <div class="d-flex flex-row align-items-center justify-content-center">
+                    <span>{{data.type}}</span>
+                  </div>
+              </td>
+              <td scope="row">
+                  <div class="d-flex flex-row align-items-center justify-content-center">
+                    <span>{{data.startDate}}</span>
+                  </div>
+              </td>
+              <td scope="row">
+                  <div class="d-flex flex-row align-items-center justify-content-center">
+                    <span>{{data.amount}}</span>
+                  </div>
+              </td>
+              <td scope="row">
+                  <div [ngClass]="data.Status" class="d-flex flex-row p-2 align-items-center">
+                    <div class="i fa fa-circle fa-sm"></div>
+                    <span class="mx-2 my-1">{{data.Status}}</span>
+                  </div>
+              </td>
+              <td class="d-flex flex-column text-center justify-content-center">
+                <!-- <i (click)="openMenu()" style="color: #C4C4C4" class="fa fa-2x fa-ellipsis-v cursor-pointer"></i> -->
+                <div class="dropdown">
+                  <i style="color: #C4C4C4" class="fa fa-2x fa-ellipsis-v cursor-pointer"></i>
+                  <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item px-3 py-2 border-bottom" href="#"><i class="fa fa-edit"></i><span class="px-2">Edit</span></a>
+                    <a class="dropdown-item px-3 py-2 border-bottom" href="#"><i class="fa fa-signature"></i><span class="px-2">Sign</span></a>
+                    <a class="dropdown-item px-3 py-2 border-bottom" href="#"><i class="fa fa-file-alt"></i><span class="px-2">View Sumary</span></a>
+                    <a class="dropdown-item px-3 py-2" href="#"><i style="color: red" class="fa fa-trash-alt"></i><span class="px-2">Delete</span></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="media" class="d-flex flex-column justify-content-center mb-3 mt-4">
+  <ng-container *ngFor="let data of datas">
+    <div class="data-mobile-content p-2 my-2">
+      <div style="background-color: #F9F9F9" class="info d-flex flex-row justify-content-between px-3 py-2">
+        <span class="title w-50">
+          Contractor Name
+        </span>
+        <span class="data w-50 text-center">
+          {{data.name}}
+        </span>
+      </div>
+      <div class="info d-flex flex-row justify-content-between px-3 py-2">
+        <span class="title w-50">
+          Type
+        </span>
+        <span class="data w-50 text-center">
+          {{data.type}}
+        </span>
+      </div>
+      <div style="background-color: #F9F9F9" class="info d-flex flex-row justify-content-between px-3 py-2">
+        <span class="title w-50">
+          Start date
+        </span>
+        <span class="data w-50 text-center">
+          {{data.startDate}}
+        </span>
+      </div>
+      <div class="info d-flex flex-row justify-content-between px-3 py-2">
+        <span class="title w-50">
+          Amount
+        </span>
+        <span class="data w-50 text-center">
+          {{data.amount}}
+        </span>
+      </div>
+      <div style="background-color: #F9F9F9" class="info d-flex flex-row justify-content-between px-3 py-2">
+        <span class="title w-50">
+          Status
+        </span>
+        <span class="data w-50">
+          <div [ngClass]="data.Status" class="d-flex flex-row p-2 align-items-center w-75 m-auto">
+            <div class="i fa fa-circle fa-sm"></div>
+            <span class="mx-2 my-1">{{data.Status}}</span>
+          </div>
+        </span>
+      </div>
+      <div class="info d-flex flex-row justify-content-between px-3 py-2">
+        <span class="title w-50">
+          Actions
+        </span>
+        <span class="data w-50 text-center">
+          <div class="dropdown">
+            <i style="color: #C4C4C4" class="fa fa-ellipsis-h cursor-pointer"></i>
+            <div class="dropdown-menu p-2" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item px-3 py-2 border-bottom" href="#"><i class="fa fa-edit"></i><span class="px-2">Edit</span></a>
+              <a class="dropdown-item px-3 py-2 border-bottom" href="#"><i class="fa fa-signature"></i><span class="px-2">Sign</span></a>
+              <a class="dropdown-item px-3 py-2 border-bottom" href="#"><i class="fa fa-file-alt"></i><span class="px-2">View Sumary</span></a>
+              <a class="dropdown-item px-3 py-2" href="#"><i style="color: red" class="fa fa-trash-alt"></i><span class="px-2">Delete</span></a>
+            </div>
+          </div>
+        </span>
+      </div>
+    </div>
+  </ng-container>
+</div>
